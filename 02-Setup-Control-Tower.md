@@ -120,3 +120,6 @@ You should then see a blue banner at the top of the page indicating the progress
 60 minutes to complete but it will be a little bit shorter than that.  For now, we wait.  There isn't anything we can do until we have this setup.
 You will receive several emails while AWS does things in the background. Keep an eye out for those.
 
+AWS Control Tower will configure SSO and will initially send an SSO invite to the root account users you used during setup.  You do not
+need to configure these accounts for SSO.
+
