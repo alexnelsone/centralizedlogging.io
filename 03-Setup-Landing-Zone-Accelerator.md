@@ -25,30 +25,37 @@ working in a regulated environment or if we care about security, this is good to
 
 ### Default Detective and Preventative Controls deployed by AWS Control Tower 
 
+('GR' stands for GuardRail)
+
 1. AWS-GR_AUDIT_BUCKET_DELETION_PROHIBITED
 2. AWS-GR_AUDIT_BUCKET_PUBLIC_READ_PROHIBITED
 3. AWS-GR_AUDIT_BUCKET_PUBLIC_WRITE_PROHIBITED
-4. AWS-GR_CLOUDTRAIL_CHANGE_PROHIBITED*
-5. AWS-GR_CLOUDTRAIL_CLOUDWATCH_LOGS_ENABLED*
-6. AWS-GR_CLOUDTRAIL_ENABLED*
-7. AWS-GR_CLOUDTRAIL_VALIDATION_ENABLED*
-8. AWS-GR_CLOUDWATCH_EVENTS_CHANGE_PROHIBITED*
-9. AWS-GR_CONFIG_AGGREGATION_AUTHORIZATION_POLICY*
-10. AWS-GR_CONFIG_AGGREGATION_CHANGE_PROHIBITED*
-11. AWS-GR_CONFIG_CHANGE_PROHIBITED*
-12. AWS-GR_CONFIG_ENABLED*
-13. AWS-GR_CONFIG_RULE_CHANGE_PROHIBITED*
+4. **AWS-GR_CLOUDTRAIL_CHANGE_PROHIBITED***
+5. **AWS-GR_CLOUDTRAIL_CLOUDWATCH_LOGS_ENABLED***
+6. **AWS-GR_CLOUDTRAIL_ENABLED***
+7. **AWS-GR_CLOUDTRAIL_VALIDATION_ENABLED***
+8. **AWS-GR_CLOUDWATCH_EVENTS_CHANGE_PROHIBITED***
+9. **AWS-GR_CONFIG_AGGREGATION_AUTHORIZATION_POLICY***
+10. **AWS-GR_CONFIG_AGGREGATION_CHANGE_PROHIBITED***
+11. **AWS-GR_CONFIG_CHANGE_PROHIBITED***
+12. **AWS-GR_CONFIG_ENABLED***
+13. **AWS-GR_CONFIG_RULE_CHANGE_PROHIBITED***
 14. AWS-GR_CT_AUDIT_BUCKET_ENCRYPTION_CHANGES_PROHIBITED
 15. AWS-GR_CT_AUDIT_BUCKET_LIFECYCLE_CONFIGURATION_CHANGES_PROHIBITED
 16. AWS-GR_CT_AUDIT_BUCKET_LOGGING_CONFIGURATION_CHANGES_PROHIBITED
 17. AWS-GR_CT_AUDIT_BUCKET_POLICY_CHANGES_PROHIBITED
 18. AWS-GR_DETECT_CLOUDTRAIL_ENABLED_ON_SHARED_ACCOUNTS
-19. AWS-GR_IAM_ROLE_CHANGE_PROHIBITED*
-20. AWS-GR_LAMBDA_CHANGE_PROHIBITED*
-21. AWS-GR_LOG_GROUP_POLICY*
-22. AWS-AWS-GR_REGION_DENY*
-23. AWS-GR_SNS_CHANGE_PROHIBITED*
-24. AWS-GR_SNS_SUBSCRIPTION_CHANGE_PROHIBITED*
+19. **AWS-GR_IAM_ROLE_CHANGE_PROHIBITED***
+20. **AWS-GR_LAMBDA_CHANGE_PROHIBITED***
+21. **AWS-GR_LOG_GROUP_POLICY***
+22. **AWS-AWS-GR_REGION_DENY***
+23. **AWS-GR_SNS_CHANGE_PROHIBITED***
+24. **AWS-GR_SNS_SUBSCRIPTION_CHANGE_PROHIBITED***
+
+You should have also received emails for subscription confirmation from SNS to the audit account email address.
+These are for `aws-controltower-AggregateSecurityNotifications`. One for each region you enabled when you setup Control 
+Tower.  If you only selected to manage one region, then you will only see one email.  You will need to click on `Confirm subscription`
+on those.
 
 So now what?  We don't want to deploy any workloads into the audit, logging or management account.  That's not
 what they are for.  We need to set things up for our workload accounts. But wait.  Not so fast.  We have a few more 
@@ -97,7 +104,7 @@ on what is described as [`Option 1`](https://docs.aws.amazon.com/solutions/lates
 ### Deploy Landing Zone Accelerator on AWS
 
 The following will be performed in the management account in the AWS standard (commercial) region.  You should have already 
-created an admin account that you can login to that account with.  Remember, using the root account to perform admin
+created an admin account that you can log in to that account with.  Remember, using the root account to perform admin
 tasks is a "No! No!".
 
 1. Create a GitHub personal access token.  You need this so that the LZA solution can check the public repository in GitHub
@@ -146,4 +153,14 @@ pipeline running.   That pipeline, the second one, is the one we will primarily 
 that will configure the landing zone based on the configuration files.  The first run of the pipeline is just deploying
 an skeleton set of configuration files.  Once the `AWSAccelerator-Installer` pipeline is complete, you can find those
 files in CodeCommit.
+
+During the setup process, the installer pipeline will also configure the SNS notification for the pipeline approval stage.
+A subscription confirmation will go to the email address(es) that you included as parameters to the stack that you will
+need to confirm.
+
+Once you see the `AWSAccelerator-Pipeline` running, sit back and relax.  It's going to be a while.  As each stage runs, it is going 
+to turn blue.  Successfully completed stages will show as green and stages that haven't run yet will be grey.
+
+Wait until the pipeline gets to the `Review` stage.  At that point, you should receive an email alerting that an approval is needed.
+After you approve the stage, you can step away for a bit.  It will take some time for the pipeline to complete.
 
