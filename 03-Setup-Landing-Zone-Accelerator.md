@@ -162,5 +162,6 @@ Once you see the `AWSAccelerator-Pipeline` running, sit back and relax.  It's go
 to turn blue.  Successfully completed stages will show as green and stages that haven't run yet will be grey.
 
 Wait until the pipeline gets to the `Review` stage.  At that point, you should receive an email alerting that an approval is needed.
-After you approve the stage, you can step away for a bit.  It will take some time for the pipeline to complete.
+After you approve the stage, you can step away for a bit.  It will take some time for the pipeline to complete. By 'some time', 
+I mean a lot. So go get something to eat or watch something.  A show, not a movie.
 
