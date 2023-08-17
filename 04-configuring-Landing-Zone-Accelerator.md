@@ -1,5 +1,5 @@
-No that both the `AWSAccelerator-Installer` and `AWSAccelerator-Pipeline` have run successfully, we can keep going with
-configuring our landing zone.  But what happened?  What did we get?  Well, we know that LZA is built on CDK and we know
+Now that both the `AWSAccelerator-Installer` and `AWSAccelerator-Pipeline` have run successfully, we can keep going with
+configuring our landing zone.  But what happened?  What did we get?  Well, we know that LZA is built on CDK, and we know
 that CDK builds out CloudFormation.  If you didn't know this before, you know it now.  Let's hop over to the CloudFormation
 console in our management account to see what happened.
 
@@ -29,6 +29,25 @@ off.
 17. AWSAccelerator-NetworkAssociationsStack-ACCOUNT_ID-REGION 
 18. AWSAccelerator-CustomizationsStack-ACCOUNT_ID-REGION 
 19. AWSAccelerator-FinalizeStack-ACCOUNT_ID-REGION
+
+### Security Notifications
+During the pipeline execution, you should expect to get a few notifications with the subject of `Config Rules Compliance Change`.
+The message body will JSON and triggered when the LZA creates logging buckets.  All of them will have a `complianceType` of
+`COMPLIANT`.
+
+You should see the following:
+1. GR_AUDIT_BUCKET_PUBLIC_WRITE_PROHIBITED     
+- For `aws-accelerator-s3-access-logs-ACCOUNT_ID-REGION` created by LZA in the centralized logging account.    
+- For `aws-accelerator-central-logs-ACCOUNT_ID-REGION` created by LZA in the centralized logging account.    
+- For `aws-accelerator-elb-access-logs-ACCOUNT_ID-REGION` created by LZA in the centralized logging account.    
+- For `aws-accelerator-s3-access-logs-ACCOUNT_ID-REGION` created by LZA in the audit account.    
+
+2. AWS-GR_AUDIT_BUCKET_PUBLIC_READ_PROHIBITED    
+- For `aws-accelerator-s3-access-logs-ACCOUNT_ID-REGION` created by LZA in the centralized logging account.    
+- For `aws-accelerator-central-logs-ACCOUNT_ID-REGION` created by LZA in the centralized logging account.    
+- For `aws-accelerator-elb-access-logs-ACCOUNT_ID-REGION` created by LZA in the centralized logging account.    
+- For `aws-accelerator-s3-access-logs-ACCOUNT_ID-REGION` created by LZA in the audit account.    
+
 
 
 ### Configuring OUs
@@ -97,4 +116,30 @@ The same indicators will appear as when the GovCloud OU was registered.  Once co
 and then the `Development`, `Stage` and `Production` OUs under `Workload-A`.  When completed, we will have a structure like
 the one below:
 
-![03-configure-lza.png](images%2F03-configure-lza.png)
+![03-configure-lza.png](images%2F03-configure-lza.png)    
+    
+Before we get too deep into things, there _might_ be an issue with a new account in which AWS will limit what you can do.
+They refer to this as a `Containment` score or you might hear it referred to as a `trust` score.  More info [here](https://towardsaws.com/containment-score-of-aws-3a893231e948).
+Let's just try to avoid this all together.
+    
+1. Open the EC2 console
+2. Select `Launch instance`
+3. Set the number of instances to `5`
+4. For `Name` put anything you like.  I just put `test`
+5. Scroll down to `Key pair (login)` and select `Proceed without a key pair (Not Recommended)` - We are not logging into these machines.
+6. Under `Network settings` click on `Edit`
+7. For `Auto-assign public IP` choose `Disable`
+8. Select `Select existing security group`
+9. In the drop-down select the `default` security group 
+10. Leave everything else the same and click on `Launch instance`
+11. Click `View all instances`
+    
+Wait for all the instances to spin up and let them run for about 45 minutes.  Then you can terminate them all.
+    
+
+### Clone CodeCommit repository
+Next up we need to clone our CodeCommit repository that contains our skeleton config files that were put there by the LZA 
+installer. [Need help?](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-git-remote-codecommit.html)
+   
+
+
