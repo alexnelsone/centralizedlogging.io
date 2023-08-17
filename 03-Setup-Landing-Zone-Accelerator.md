@@ -10,7 +10,7 @@ Some of the other things we get out of the box are:
 
 We can see a lot of things in the Control Tower Dashboard.  There we can see in the `Environment summary` that we have
 2 organizational units and 3 accounts.  We can also see in the `Enabled control summary` that we have 21 Preventative
-controls and 3 Detective controls (at least as of the time of this writing).  And if we click on the 21, we end up on a 
+controls and 3 Detective controls (at least as of the time of this writing, 24 in total).  And if we click on the 21, we end up on a 
 page that says `All controls` and a list of 427 controls!  What?  An easy way to see them is by using the awscli.  Open 
 the `AWS Organizations` console in another tab, click on `AWS accounts` and select the `Security` OU. Copy it's ARN and 
 paste it at the of this command:
