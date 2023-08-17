@@ -57,6 +57,18 @@ These are for `aws-controltower-AggregateSecurityNotifications`. One for each re
 Tower.  If you only selected to manage one region, then you will only see one email.  You will need to click on `Confirm subscription`
 on those.
 
+The last thing we want to "touch up" is a configuration with the Control Tower account factory.  Out of the box, Control
+Tower's account factory is configured to set up subnets in our VPCs.  We want to have full control over our VPC deployment
+so we want to stop this.  Do the following in the Control Tower console:
+
+1. Select `Account factory` from the menu
+2. Click `Edit` in the `Network configuration` settings
+3. Change the `Maximum number of private subnets` to `0`
+4. Click `Save`
+
+The subnets will stay the same.  It doesn't really matter since it won't be creating any subnets.  And we aren't going
+to use the 172 ranges.  So if we see that any time in the future, we will know something is messed up. Moving on.
+
 So now what?  We don't want to deploy any workloads into the audit, logging or management account.  That's not
 what they are for.  We need to set things up for our workload accounts. But wait.  Not so fast.  We have a few more 
 infrastructure components to set up as part of best practices.  There are a few more accounts that we need to provision
