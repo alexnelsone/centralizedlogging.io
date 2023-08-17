@@ -55,12 +55,12 @@ what they are for.  We need to set things up for our workload accounts. But wait
 infrastructure components to set up as part of best practices.  There are a few more accounts that we need to provision
 to help us.  Here's what we have:
 
-Management Account: Centralized account for billing and for configuring our landing zone.  Here is where we will setup any
-additiona SCPs, create Organizational Units, provision accounts, etc.
+Management Account: Centralized account for billing and for configuring our landing zone.  Here is where we will set up any
+additional SCPs, create Organizational Units, provision accounts, etc.
 
 Audit Account:  We have this setup so that we can set it as the administrative account for our landing zone for services
 like Security Hub, GuardDuty, etc.  This way we have a centralized location to look at security events and a place we can
-send auditors so we don't have to give them access to everything.
+send auditors, so we don't have to give them access to everything.
 
 Logging Account: All of our logs will go here. So if we set up any log monitoring, we can do so from a centralized location.
 
@@ -86,6 +86,8 @@ and you would have a pretty good set up.  Recently though, there has been an eff
 The end result is [Landing Zone Accelerator on AWS](https://aws.amazon.com/solutions/implementations/landing-zone-accelerator-on-aws/).
 This is an open source project built using AWS CDK that abstracts configuring the landing zone environment by letting you
 use yaml files to pass in configuration (as opposed to writing CloudFormation like with CfCt).
+
+Moving forward, rather than writing `Landing Zone Accelerator on AWS`, I will use 'LZA'.
 
 The implementation guide can be found [here](https://docs.aws.amazon.com/solutions/latest/landing-zone-accelerator-on-aws/solution-overview.html) and
 the source code [here](https://github.com/awslabs/landing-zone-accelerator-on-aws).  Let's set this up now.  Since we are going
@@ -134,5 +136,14 @@ The remaining [prerequisites](https://docs.aws.amazon.com/solutions/latest/landi
 29. Click `Submit`
 
 And now, we wait. A while.  You can keep an eye on the CloudFormation console until you see your `AWSAccelerator-Installer`
-stack show `CREATE_COMPLETE`.
+stack show `CREATE_COMPLETE`.  
+
+### BUT WAIT!  THERE'S MORE.
+Once your stack shows `CREATE_COMPLETE`, open the AWS CodePipeline console.  You should see a pipeline caled `AWSAccelerator-Installer`
+with a status of `In progress`.  This is now going to install the rest of the solution for you.  The installer pipeline is pulling
+the LZA code from GitHub and executing the CDK.  Once the `Install` stage of that pipeline completes, you will see another
+pipeline running.   That pipeline, the second one, is the one we will primarily be working with.  This is the pipeline 
+that will configure the landing zone based on the configuration files.  The first run of the pipeline is just deploying
+an skeleton set of configuration files.  Once the `AWSAccelerator-Installer` pipeline is complete, you can find those
+files in CodeCommit.
 
