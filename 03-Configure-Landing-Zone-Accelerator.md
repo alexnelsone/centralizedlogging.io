@@ -133,4 +133,5 @@ The remaining [prerequisites](https://docs.aws.amazon.com/solutions/latest/landi
 28. Check the box next to `I acknowledge that AWS CloudFormation might create IAM resources.`
 29. Click `Submit`
 
+And now, we wait. A while.
 
