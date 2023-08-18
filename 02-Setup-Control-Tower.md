@@ -1,3 +1,5 @@
+Now that we have the initial accounts setup, we can go ahead and start to configure Control Tower.
+
 ### Create KMS Key
 We want to `encrypt all the things.`  Control Tower allows for you to setup encryption for AWS CloudTrail and AWS Config and we want
 to do this.  Create a KMS key with the policy below.  Replace `ACCOUNT_ID` with the account id of your account.

@@ -1,0 +1,54 @@
+enable: true
+organizationalUnits:
+  - name: Security
+  - name: Infrastructure
+  - name: Workload-A
+  - name: Workload-A/Development
+  - name: Workload-A/Stage
+  - name: Workload-A/Production
+  - name: DevTools
+  - name: GovCloud
+quarantineNewAccounts:
+  enable: true
+  scpPolicyName: Quarantine
+serviceControlPolicies:
+  - name: AcceleratorGuardrails1
+    description: >
+      Accelerator GuardRails 1
+    policy: service-control-policies/guardrails-1.json
+    type: customerManaged
+    deploymentTargets:
+      organizationalUnits:
+        - Infrastructure
+  - name: AcceleratorGuardrails2
+    description: >
+      Accelerator GuardRails 2
+    policy: service-control-policies/guardrails-2.json
+    type: customerManaged
+    deploymentTargets:
+      organizationalUnits:
+        - Infrastructure
+  - name: Quarantine
+    description: >
+      This SCP is used to prevent changes to new accounts until the Accelerator
+      has been executed successfully.
+      This policy will be applied upon account creation if enabled.
+    policy: service-control-policies/quarantine.json
+    type: customerManaged
+    deploymentTargets:
+      organizationalUnits: []
+# https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html
+taggingPolicies:
+  - name: TagPolicy
+    description: Organization Tagging Policy
+    policy: tagging-policies/org-tag-policy.json
+    deploymentTargets:
+      organizationalUnits:
+        - Root
+backupPolicies:
+  - name: BackupPolicy
+    description: Organization Backup Policy
+    policy: backup-policies/backup-plan.json
+    deploymentTargets:
+      organizationalUnits:
+        - Root

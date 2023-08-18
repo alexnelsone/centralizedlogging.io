@@ -55,10 +55,12 @@ need to set up your GovCloud account.  If you don't plan on using GovCloud (US),
 
 ### Setup GovCloud Account (Optional)
 
+Initially, I'm not going to setup the GovCloud (US) side of this configuration.  At the moment, I plan on running workloads in
+both the commercial and GovCloud (US) partitions, but I will work on the GovCloud side later.
+
 1. login to your commercial account with the root user, the email address you used to create the account.
 2. In the upper right hand corner, select the drop-down next to account name and select 'Account'    
-    
-![setup-govcloud-1.png](images%2Fsetup-govcloud-1.png)    
+    ![01-configure-lza.png](images%2F01-configure-lza.png)    
     
 3. On the account page, scroll until you see 'Other Settings' and click `AWS GovCloud` on the line that says "To sign up for
 AWS GovCloud (US), see AWS GovCloud."  If you do not see this, you did not login as the root user.
@@ -69,6 +71,8 @@ AWS GovCloud (US), see AWS GovCloud."  If you do not see this, you did not login
 This will trigger all events on the AWS side to get you set up that will link this account to a GovCloud (US) account. 
 Once done, you will be provided with API keys that you can use to get started with that account.  While we wait for that, 
 we are going to go ahead and setup AWS Control Tower in our commercial region.
+
+
 
 
 

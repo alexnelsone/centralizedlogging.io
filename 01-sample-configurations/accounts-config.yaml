@@ -1,0 +1,45 @@
+mandatoryAccounts:
+  - name: Management
+    description: >-
+      The management (primary) account. Do not change the name field for this
+      mandatory account. Note, the account name key does not need to match the
+      AWS account name.
+    email: <management-account>@example.com <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Root
+    warm: false
+  - name: LogArchive
+    description: >-
+      The log archive account. Do not change the name field for this mandatory
+      account. Note, the account name key does not need to match the AWS account
+      name.
+    email: <log-archive>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Security
+    warm: false
+  - name: Audit
+    description: >-
+      The security audit account (also referred to as the audit account). Do not
+      change the name field for this mandatory account. Note, the account name
+      key does not need to match the AWS account name.
+    email: <audit>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Security
+    warm: false
+workloadAccounts:
+  # The "name" will be used to set the AWS Account name
+  # The "name" value does not currently support spaces
+  # The "name" value DOES NOT need to match the account name
+  - name: Network
+    description: Centralized Network account for commercial partition
+    email: <network>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Infrastructure
+  - name: DevTools
+    description: Centralized DevTools account for commercial partition
+    email: <devtools>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: DevTools
+  - name: Workload-A-Database
+    description: Database account for Workload-A in commercial partition
+    email: <workload-a-db>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Workload-A/Development
+  - name: Workload-A-Application
+    description: Application account for Workload-A in commercial partition
+    email: <workload-a-app>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Workload-A/Development
