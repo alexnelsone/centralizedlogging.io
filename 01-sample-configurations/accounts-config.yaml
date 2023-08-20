@@ -35,11 +35,11 @@ workloadAccounts:
     description: Centralized DevTools account for commercial partition
     email: <devtools>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: DevTools
-  - name: Workload-A-Database
+  - name: Workload-A-Database-Dev
     description: Database account for Workload-A in commercial partition
     email: <workload-a-db>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: Workload-A/Development
-  - name: Workload-A-Application
+  - name: Workload-A-Application-Dev
     description: Application account for Workload-A in commercial partition
     email: <workload-a-app>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: Workload-A/Development

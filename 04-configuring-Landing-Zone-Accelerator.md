@@ -591,5 +591,6 @@ focus.  Right now, we are (sort of) running through the house and turning on all
 We are going to stop here with the security-config.yaml for the same reasons as the network-config.yaml.  We will come back
 to it later and add more configurations.
 
-Let's go ahead and check the files back in and trigger the pipeline to run again.
+Let's go ahead and check the files back in and trigger the pipeline to run again.  All the updated files up to this point
+are in the 01-sample-configurations directory.
 
