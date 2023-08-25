@@ -9,6 +9,14 @@ Now that our pipeline has run all the way through with some additional configura
 | Workload-A-Database-Dev    | An account to house databases for development environment for Workload-A                                                |
 | Workload-A-Application-Dev | An account for development of applications for Workload-A.  It will access databases in Workload-A-Database-Dev account |
 
+And we have some 'basic' accounts for management:
+
+| Account Name       | Purpose                                                                                                                                                           |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Management ACcount | Account where we will deploy and manage our Landing Zone environment                                                                                              |
+| Audit Account      | Also referred to as our 'Security' account.  This account is setup to administer all of our security services<br /> like AWS Config, GuardDuty, and Security Hub. |
+| LogArchive         | This account holds the logging S3 buckets that receive logs from all our accounts.                                                                                |
+
 
 While the pipeline was running, a few emails came in.  
 
@@ -73,7 +81,7 @@ configuring out our environment we will be creating (and possibly destroying) a 
 when Config detects a new resource.  We do however, want to be able to see things that are `NON_COMPLIANT` so that we can fix those later.
 There are other SNS topics created with different levels of notifications.  To see those, see [this link](https://docs.aws.amazon.com/controltower/latest/userguide/sns-guidance.html).
 For now, we will keep going.  The next page details how we can start to get into each of our accounts to continue
-with reiewing what has been installed for us.
+with reviewing what has been installed for us.
 
 
 
