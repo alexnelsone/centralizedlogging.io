@@ -44,3 +44,28 @@ have is the MFA app, start there.  You can always configure a hardware MFA later
 
 You can now log out of this account and repeat the steps on this page for all of your accounts.  Remember, as you create new accounts
 using Landing Zone Accelerator on AWS, you will need to perform this for each account.
+
+Once we have enabled MFA for all of our root users, let's go ahead and log back in with SSO to our Audit account and open the Security Hub Console and
+click on the `Critical` findings.
+
+For each of the findings regarding MFA on the root user, we can mark them as `Resolved`.  If, as in my case, we did not enable a hardware MFA token, we will leave those alone. For now.
+
+1. Click on the checkbox on the line for `1.13 Ensure MFA is enabled for the root user`    
+![26-configure-lza.png](images%2F26-configure-lza.png)    
+2. Click on the `Workflow status` drop down and select `Resolved`    
+![27-configure-lza.png](images%2F27-configure-lza.png)    
+
+This will remove the Finding from the list.  Additionally, you can select all the findings that you want to mark as resolve
+and resolve them as a group.  In my case, I selected all my Findings designated as `1.13` and marked them all as resolved.
+
+If you know you are not going to be setting up hardware MFA for the root users, this is strong discouraged for corporate
+environments, go ahead and select all of them and choose `Suppressed` from the `Workflow status` drop down. This should clear out the 
+Findings list.
+    
+![28-configure-lza.png](images%2F28-configure-lza.png)    
+    
+Our `Critical` findings should now be at zero.
+    
+![29-configure-lza.png](images%2F29-configure-lza.png)
+
+
