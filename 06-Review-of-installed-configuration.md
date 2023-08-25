@@ -38,6 +38,12 @@ We received an email to confirm the subscription.
 ![09-configure-lza.png](images%2F09-configure-lza.png)
 
 We also received several messages from the `Config Rules Compliance Change` SNS topic for each new resource created/modified.
+This comes from our SNS subcription to `aws-controltower-AggregateSecurityNotifications` topic.
+
+This topic exists in each AWS Region we have configured for our Landing Zone.  It forwards messages it receives from another
+SNS topic, `aws-controltower-SecurityNotifications` which receives compliance, noncompliance, and change notifications from
+AWS Config in the configured region. For more information on notifications from Control Tower see [here](https://docs.aws.amazon.com/controltower/latest/userguide/receive-notifications.html).
+
 Below is the list of alerts received from the pipeline run.
 
 ### Config Rule Compliance Change Alerts
@@ -61,6 +67,16 @@ Below is the list of alerts received from the pipeline run.
 
 This is a lot of information, we'll have to do something about this or our inbox(es) will get full fast and if we receive too
 many, there is a chance that something falls through the cracks if someone starts to consider this "noise" and "can be ignored."
+The documentation regarding notifications from Control Tower mentions that "SNS topics in AWS Control Tower are extremely noisy, by design."
+The page does mention a way to filter some of the noise, so we are going to put some of that in place later.  As we are
+configuring out our environment we will be creating (and possibly destroying) a lot of resources, and we don't need to be notified
+when Config detects a new resource.  We do however, want to be able to see things that are `NON_COMPLIANT` so that we can fix those later.
+There are other SNS topics created with different levels of notifications.  To see those, see [this link](https://docs.aws.amazon.com/controltower/latest/userguide/sns-guidance.html).
+For now, we will keep going.  The next page details how we can start to get into each of our accounts to continue
+with reiewing what has been installed for us.
+
+
+
 
 
 
