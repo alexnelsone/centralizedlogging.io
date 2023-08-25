@@ -68,4 +68,29 @@ Our `Critical` findings should now be at zero.
     
 ![29-configure-lza.png](images%2F29-configure-lza.png)
 
+Next, let's take a look at the `High` findings.  For this, click on the number in the number under `HIGH` on the summary page.
+WHen I have a considerable amount of findings, I like to approach them on an account by account basis.  
+
+1. Click on the `Add filter` textbo on the Findings page
+2. Select `AWS account ID`
+3. Select `is` from the drop-down
+4. Paste your account ID in the text box
+5. Click `Apply`
+6. Click on the `Add filter` textbox on the Findings page (yes, again)
+7. Select `Compliance Status`
+8. Select `is` from the drop-down
+9. Type `FAILED` in the text box
+10. Click `Apply`
+
+You can now investigate each of the findings and determine if you can `Resolve` them or `Suppress` them.  I generally go through
+all the findings during an initial LZA deployment to make sure that I start with a clean environment where all issues
+are 'known'.
+
+An example finding would be `1.22 Ensure IAM policies that allow full "*:*" administrative privileges are not created`.  If I
+select the text from the finding, a `Details` pane appears.
+    
+![30-configure-lza.png](images%2F30-configure-lza.png)    
+    
+By selecting the dropdown arrow next to `Resources` I can see the arn of the resources causing the alert and address them as necessary.
+
 
