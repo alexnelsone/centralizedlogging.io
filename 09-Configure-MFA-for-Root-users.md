@@ -91,6 +91,9 @@ select the text from the finding, a `Details` pane appears.
     
 ![30-configure-lza.png](images%2F30-configure-lza.png)    
     
-By selecting the dropdown arrow next to `Resources` I can see the arn of the resources causing the alert and address them as necessary.
+By selecting the dropdown arrow next to `Resources` I can see the arn of the resources causing the alert and address them 
+as necessary.
+
+Let's go ahead and take a look at some of the findings per account.
 
 
