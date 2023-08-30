@@ -63,6 +63,27 @@ to assist with setting up logging.  Because the SNS topic is created outside LZA
 confiuguration files.  This update will need to occur manually, and you will need to perform it as the `ControlTowerExecutionRole`
 due to Service Control Policies that have an explicit deny for any other user.
 
+The Audit account has 4 topics to modify.
+The LogArchive account has 2 topics to modify.
 
-Follow these instructions to remediate:    
+When editing the topics in the SNS console, the IAM role is not a drop down.  You will need the arn for the success
+and failure roles.
+
+Details for remediation:    
 https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html
+
+1. Open the SNS console
+2. Select the radio button for the topic to edit
+3. Click on the `Edit` button
+4. Expand `Delivery status logging - optional`
+5. Select the protocols to log under `Log delivery status for these protocols`
+6. Enter the IAM role for successful deliveries
+7. Enter the IAM role for failed deliveries
+
+![36-configure-lza.png](images%2F36-configure-lza.png)    
+    
+The security notification will show the following new and old evaluation result for each SNS topic:
+    
+![37-configure-lza.png](images%2F37-configure-lza.png)    
+
+
