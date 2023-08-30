@@ -85,5 +85,39 @@ https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html
 The security notification will show the following new and old evaluation result for each SNS topic:
     
 ![37-configure-lza.png](images%2F37-configure-lza.png)    
+    
+## SNS.1 SNS topics should be encrypted at-rest using AWS KMS
+This is coming up for the Control Tower SNS topics `aws-controltower-AllConfigNotifications`. You will need to perform this
+as the `AWSControlTowerExecution` Role.
+
+1. Open the SNS console
+2. select the `aws-controltower-AllConfigNotifications` topic radio button
+3. Click `Edit`
+4. Expand the `Encryption` section
+5. Toggle the switch next to `Encryption`
+6. Select the `alias/accelerator/kms/snstopic/key`
+7. click the `Save changes` button
+
+## Athena.1 Athena workgroups should be encrypted at rest
+This was appearing in the Audit account.  Because we are not using Athena at the moment, we are going to set encryption
+but also turn off the workgroup.
+
+1. Open the Athena console
+2. Select `Workgroups` from the menu (Under `Administration`)
+3. Select the radio button next to the workgroup name
+4. Select `Actions` > `Edit`
+5. Scroll to `Query result configuration` and expand it
+6. Select the checkbox for `Encrypt query results`
+7. Select the `SSE_KMS` option
+8. Select the key with the `accelerator/kms/s3/key` alias
+9. Select the `Set SSE_KMS as minimum encryption` option
+9. Click the `Save changes` button
+
+The workgroup should now have a status of `Turned off` in the workgroup console.
 
 
+## Account.1 Security contact information should be provided for an AWS account.
+
+1. Login to your account as root user
+2. From the menu in the top right, select the account and then select `Account`
+3. Scroll to the `Alternate Contact` section and click `Edit`
