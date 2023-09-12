@@ -90,8 +90,9 @@ the previous.
 ![40-configure-lza.png](images%2F40-configure-lza.png)    
     
 For each account, an invitation for the root email, the email address used in the `accounts-config.yaml`. to join SSO.  You
-DO NOT need to accept this invitation.
+DO NOT need to accept this invitation.  
     
-For each of the security notifications (Low, Medium and High), a subscription notification for the SNS topics.
+For each of the security notifications (Low, Medium and High), a subscription notification for the SNS topics.   You will 
+need to confirm these subscriptions.
 
 ![41-configure-lza.png](images%2F41-configure-lza.png)    
