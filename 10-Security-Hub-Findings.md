@@ -121,3 +121,71 @@ The workgroup should now have a status of `Turned off` in the workgroup console.
 1. Login to your account as root user
 2. From the menu in the top right, select the account and then select `Account`
 3. Scroll to the `Alternate Contact` section and click `Edit`
+4. Fill in the necessary information
+5. Click `Save`
+
+## ECR.3 ECR repositories should have at least one lifecycle policy configured
+For examples on lifecycle policies for repositories, see [here](https://docs.aws.amazon.com/AmazonECR/latest/userguide/lifecycle_policy_examples.html).
+
+For a simple one, you could use.  You can modify the number of days if you like.  This example comes from the documentation
+linked above.
+```json
+{
+    "rules": [
+        {
+            "rulePriority": 1,
+            "description": "Expire images older than 14 days",
+            "selection": {
+                "tagStatus": "untagged",
+                "countType": "sinceImagePushed",
+                "countUnit": "days",
+                "countNumber": 14
+            },
+            "action": {
+                "type": "expire"
+            }
+        }
+    ]
+}
+```
+
+Because during initial setup of LZA, cdk creates the ECR repositories (prefixed with `cdk-accel-container-assets`), this policy
+needs to be added by hand since the repository is not managed by LZA.
+
+1. Open the Amazon Elastic Container Registry console
+2. Select `Repositories`
+3. Select the checkbox next to the repository prefixed with `cdk-accel-container-assets` 
+4. Select `Actions` drop down and then `Lifecycle policies`
+5. Select `Actions` and then `edit JSON`
+6. In the edit box that appears, paste the JSON from above
+7. Click `Save`    
+
+The information on the lifecycle rule will automatically fill in the `Priority`, `Rule description` and `Summary`.
+    
+![38-configure-lza.png](images%2F38-configure-lza.png)    
+
+
+
+## 2.1.2 Ensure S3 Bucket Policy is set to deny HTTP requests
+Add the following to the bucket policy replacing BUCKET_ARN.
+
+
+```yaml
+        {
+            "Sid": "AllowSSLRequestsOnly",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "BUCKET_ARN",
+                "BUCKET_ARN/*"
+            ],
+            "Condition": {
+                "Bool": {
+                    "aws:SecureTransport": "false"
+                }
+            }
+        }
+
+```
+
