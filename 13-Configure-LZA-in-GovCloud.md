@@ -1237,3 +1237,6 @@ You will also receive a few notifications from the  security SNS topics to confi
 confirm these.
 
 Because we are not configuring Control Tower in the GovCloud environment, SSO is not configured.  We will do this later.
+
+At this point we can take a break.  We need to provide `Config`, `Security Hub` and the other security services to gather information.
+If we were to go to the `Security Hub` console at this time, it will not show too many findings.
