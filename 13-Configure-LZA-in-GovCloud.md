@@ -1229,3 +1229,11 @@ keyManagementService:
 42. Open the `CodePipeline` console in the management account
 43. Select the `AWSAccelerator-Pipeline` that has a status of `Failed`
 44. Click on `Release change`
+
+While the pipeline is running and configuring the Landing Zone environment, during the creation of the accounts, you will receive several messages regarding the creation of your accounts and letting you 
+know that your accounts were added to the organization.
+
+You will also receive a few notifications from the  security SNS topics to confirm your subscriptions.  You will need to 
+confirm these.
+
+Because we are not configuring Control Tower in the GovCloud environment, SSO is not configured.  We will do this later.
