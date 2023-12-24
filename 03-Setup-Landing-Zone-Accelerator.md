@@ -158,7 +158,7 @@ And now, we wait. A while.  You can keep an eye on the CloudFormation console un
 stack show `CREATE_COMPLETE`.  
 
 ### BUT WAIT!  THERE'S MORE.
-Once your stack shows `CREATE_COMPLETE`, open the AWS CodePipeline console.  You should see a pipeline caled `AWSAccelerator-Installer`
+Once your stack shows `CREATE_COMPLETE`, open the AWS CodePipeline console.  You should see a pipeline called `AWSAccelerator-Installer`
 with a status of `In progress`.  This is now going to install the rest of the solution for you.  The installer pipeline is pulling
 the LZA code from GitHub and executing the CDK.  Once the `Install` stage of that pipeline completes, you will see another
 pipeline running.   That pipeline, the second one, is the one we will primarily be working with.  This is the pipeline 
