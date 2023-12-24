@@ -83,7 +83,10 @@ send auditors, so we don't have to give them access to everything.
 
 Logging Account: All of our logs will go here. So if we set up any log monitoring, we can do so from a centralized location.
 
-Additionally, we now want to set up:
+We can't do much with these three accounts other than monitor our environment.  What we want to do next is create a few more accounts
+to add a little more functionality and capability to our landing zone.
+
+We will be looking at adding the following:
 
 Networking Account:  For our commercial side we want to set up centralized ingress and egress.  We don't want to have to 
 configure an Internet Gateway or NAT gateway in a bunch of accounts.  If we run this centrally we can control traffic flow.
