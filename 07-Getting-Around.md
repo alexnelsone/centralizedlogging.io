@@ -32,7 +32,7 @@ rotating.
 
 
 ### Create SSO User
-This is the preferred method because its just easier to bounce around accounts as needed.
+This is the preferred method because it's just easier to bounce around accounts as needed.
 
 1. Log in to your Landing Zone Management Account
 2. Open `IAM Identity Center (successor to  AWS Single Sign-On)` console

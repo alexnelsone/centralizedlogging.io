@@ -2,18 +2,18 @@ Now that our pipeline has run all the way through with some additional configura
 4 new accounts.
 
 
-| Account Name               | Purpose                                                                                                                 |
-|----------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| Network                    | This is the account we will use as our central location for network services.                                           |
-| DevTools                   | An account that will house our code repositories and CICD pipelines                                                     |
-| Workload-A-Database-Dev    | An account to house databases for development environment for Workload-A                                                |
-| Workload-A-Application-Dev | An account for development of applications for Workload-A.  It will access databases in Workload-A-Database-Dev account |
+| Account Name   | Purpose                                                                                  |
+|----------------|------------------------------------------------------------------------------------------|
+| Network        | This is the account we will use as our central location for network services.            |
+| SharedServices | An account where we can place any services that are used across our entire landing zone. |
+| DevTools       | An account that will house our code repositories and CICD pipelines.                     |
+| Sandbox        | An account that we can start using to familiarize ourselves with working in AWS.         |
 
 And we have some 'basic' accounts for management:
 
 | Account Name       | Purpose                                                                                                                                                           |
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Management ACcount | Account where we will deploy and manage our Landing Zone environment                                                                                              |
+| Management Account | Account where we will deploy and manage our Landing Zone environment.                                                                                             |
 | Audit Account      | Also referred to as our 'Security' account.  This account is setup to administer all of our security services<br /> like AWS Config, GuardDuty, and Security Hub. |
 | LogArchive         | This account holds the logging S3 buckets that receive logs from all our accounts.                                                                                |
 
