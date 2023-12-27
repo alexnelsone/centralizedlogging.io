@@ -1,4 +1,4 @@
-Now that both the `AWSAccelerator-Installer` and `AWSAccelerator-Pipeline` have run successfully, we can keep going with
+`Now that both the `AWSAccelerator-Installer` and `AWSAccelerator-Pipeline` have run successfully, we can keep going with
 configuring our landing zone.  But what happened?  What did we get?  Well, we know that LZA is built on CDK, and we know
 that CDK builds out CloudFormation.  If you didn't know this before, you know it now.  Let's hop over to the CloudFormation
 console in our management account to see what happened.
@@ -81,25 +81,23 @@ it to manage this OU.  On the next page, scroll down to the bottom, check the bo
 click on `Register OU`.
 
 You will get a blue status bar at the top of the page indicating that Control Tower is registering the OU.  It says it will take about an 
-hour, but it is much less than that.   You will know it is complete when you sees a green status bar at the top of the page
+hour, but it is much less than that.   You will know it is complete when you see a green status bar at the top of the page
 and the `State` of the `GovCloud` OU will show `Registered`.
 
 Now let's create a few more OUs that we know we will need.  I mentioned that I will have an account that will house my
-code repositories and pipelines.  I'll create an OU called `DevTools` for that.  Then I want to have a target account.  An 
-account that I can use to push solutions into.  So I'll create an OU called `Workload-A` and under that I'll create some stage OUs.
-So under `Workload-A`, I'll have a `Development`, `Stage` and `Production` OU.  
+code repositories and pipelines.  We'll create an OU called `DevTools` for that.  Then, for our first setup,
+I'll create a Sandbox account that I can use to experiment with.  We can use the `Sandbox` account to get my feet wet learning
+how to do CICD from the `DevTools` account.  As we get more comfortable, we can start to add some complexity.
 
 At least, this is what I'm thinking right now.  There is no 'right' or 'wrong' here.  Only the best decision to be made at the 
-time the decision needs to be made.  Nothing is written in stone, and it can be changed later. By configuring the structure
-around my workloads, I can more easily isolate that workload if there is a problem and more easily understand how much it costs
-to run that workload.  We will end up with a structure similar to the diagram below.    
-    
-![01-configure-lza.png](images%2F02-configure-lza.png)    
+time the decision needs to be made.  Nothing is written in stone, and it can be changed later. For example, we may want to think about
+configuring the structure around my workloads. By doing this we can more easily isolate that workload if there is a problem 
+and more easily understand how much it costs to run that workload.  There are many ways to do things.
 
-The accounts shown in the `DevTools` and `Development` OU have dashed lines to denote they have not been created yet. For each
-stage, I'll have accounts specific to the services.  For example, the current plan is to create an account to house all databases in order
-to separate the data layer with an account boundary.  Any specific AWS services that are used, like IoT, I would consider
-if it is best to separate that service into its own account.
+We will end up with a structure similar to the diagram below.    
+    
+![01-configure-lza.png](images%2F01-configure-lza.png)
+
 
 Let's go ahead and create the OU structure using the Control Tower console.
    
@@ -112,14 +110,13 @@ Let's go ahead and create the OU structure using the Control Tower console.
 6. For `Parent OU` enter `Root`
 7. Click `Add`
 
-The same indicators will appear as when the GovCloud OU was registered.  Once complete, add a `Workload-A` OU under root
-and then the `Development`, `Stage` and `Production` OUs under `Workload-A`.  When completed, we will have a structure like
-the one below:
+The same indicators will appear as when the GovCloud OU was registered.  Once complete, add a `Sandbox` OU under root. When 
+completed, we will have a structure like the one below:
 
-![03-configure-lza.png](images%2F03-configure-lza.png)    
+![03-configure-lza.png](images%2F03-configure-lza.png)
     
 Before we get too deep into things, there _might_ be an issue with a new account in which AWS will limit what you can do.
-They refer to this as a `Containment` score or you might hear it referred to as a `trust` score.  More info [here](https://towardsaws.com/containment-score-of-aws-3a893231e948).
+They refer to this as a `Containment` score, or you might hear it referred to as a `trust` score.  More info [here](https://towardsaws.com/containment-score-of-aws-3a893231e948).
 Let's just try to avoid this all together.
     
 1. Open the EC2 console
@@ -136,6 +133,7 @@ Let's just try to avoid this all together.
     
 Wait for all the instances to spin up and let them run for about 45 minutes.  Then you can terminate them all.
     
+Now, let's start configuring out Landing Zone.
 
 ### Clone CodeCommit repository
 Next up we need to clone our CodeCommit repository that contains our skeleton config files that were put there by the LZA 
@@ -172,18 +170,18 @@ Let's get started.
     description: Centralized Network account for commercial partition
     email: <network>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: Infrastructure
+  - name: SharedServices
+    description: The SharedServices account
+    email: <shared_services>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Infrastructure    
   - name: DevTools
     description: Centralized DevTools account for commercial partition
     email: <devtools>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: DevTools
-  - name: Workload-A-Database
-    description: Database account for Workload-A in commercial partition
-    email: <workload-a-db>@example.com  <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: Workload-A/Development
-  - name: Workload-A-Application
-    description: Application account for Workload-A in commercial partition
-    email: <workload-a-application>@example.com  <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: Workload-A/Development    
+  - name: Sandbox
+    description: Sandbox account in commercial partition
+    email: <sandbox>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Sandbox
 ```
    
 ### Configure global-config.yaml
@@ -449,12 +447,9 @@ groupSets:
 organizationalUnits:
   - name: Security
   - name: Infrastructure
-  - name: Workload-A
-  - name: Workload-A/Development
-  - name: Workload-A/Stage
-  - name: Workload-A/Production
-  - name: DevTools
   - name: GovCloud 
+  - name: DevTools
+  - name: Sandbox
 ```
 3. After the `organizationalUnits:` section, add the following
 ```yaml
@@ -591,6 +586,6 @@ focus.  Right now, we are (sort of) running through the house and turning on all
 We are going to stop here with the security-config.yaml for the same reasons as the network-config.yaml.  We will come back
 to it later and add more configurations.
 
-Let's go ahead and check the files back in and trigger the pipeline to run again.  All the updated files up to this point
-are in the 01-sample-configurations directory.
+Before we check in the files to our repository, we'll run some tests to check them.  We will get into that in the next
+section.  All the updated files up to this point are in the 01-sample-configurations directory.
 

@@ -2,12 +2,9 @@ enable: true
 organizationalUnits:
   - name: Security
   - name: Infrastructure
-  - name: Workload-A
-  - name: Workload-A/Development
-  - name: Workload-A/Stage
-  - name: Workload-A/Production
-  - name: DevTools
   - name: GovCloud
+  - name: DevTools
+  - name: Sandbox
 quarantineNewAccounts:
   enable: true
   scpPolicyName: Quarantine

@@ -31,15 +31,15 @@ workloadAccounts:
     description: Centralized Network account for commercial partition
     email: <network>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: Infrastructure
+  - name: SharedServices
+    description: Centralized Network account for commercial partition
+    email: <sharedservices>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Infrastructure
   - name: DevTools
     description: Centralized DevTools account for commercial partition
     email: <devtools>@example.com  <----- UPDATE EMAIL ADDRESS
     organizationalUnit: DevTools
-  - name: Workload-A-Database-Dev
-    description: Database account for Workload-A in commercial partition
-    email: <workload-a-db>@example.com  <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: Workload-A/Development
-  - name: Workload-A-Application-Dev
-    description: Application account for Workload-A in commercial partition
-    email: <workload-a-app>@example.com  <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: Workload-A/Development
+  - name: Sandbox
+    description: Sandbox account in commercial partition
+    email: <sandbox>@example.com  <----- UPDATE EMAIL ADDRESS
+    organizationalUnit: Sandbox
