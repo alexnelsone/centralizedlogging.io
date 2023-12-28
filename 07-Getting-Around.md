@@ -8,6 +8,10 @@ With Control Tower installed, you can use the AWSControlTowerExecution role to g
 Control Tower.  You will need to have your account numbers handy so if you have a text editor open, it might be a good
 idea to copy/paste those account numbers and account names in it. An easy way to do this would be to open the `Control Tower`
 console, and select `Organizations`.  This will give you a nice list.    
+    
+** Note that in all images below, account numbers and email addresses have been hidden.
+
+
 
 ![11-configure-lza.png](images%2F11-configure-lza.png)    
 
