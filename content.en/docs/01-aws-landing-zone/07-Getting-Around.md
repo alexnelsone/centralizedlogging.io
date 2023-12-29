@@ -13,7 +13,7 @@ console, and select `Organizations`.  This will give you a nice list.
 
 
 
-![11-configure-lza.png](images%2F11-configure-lza.png)    
+![11-configure-lza.png](images/11-configure-lza.png)    
 
 The process below gets you into the Log account, but the process can be followed to enter into any of your accounts.
 
@@ -23,14 +23,14 @@ The process below gets you into the Log account, but the process can be followed
 4. For role, enter `AWSControlTowerExecution`
 5. Enter a `Display Name`. This is going to be put in the drop-down so that you do not have to enter this all the time.
 6. Click `Switch Role` to enter into the account    
-![12-configure-lza.png](images%2F12-configure-lza.png)
+![12-configure-lza.png](images/12-configure-lza.png)
      
 7.  You should see the Display Name you entered now appear in the upper right hand corner.
 
 If you select the down arrow you should see your Role History as well. You can cache up to 5 roles.  After that they start 
 rotating.
     
-![13-configure-lza.png](images%2F13-configure-lza.png)    
+![13-configure-lza.png](images/13-configure-lza.png)    
 
 8. To go back to the management account, click on the `Switch back` button in the drop-down
 
@@ -43,11 +43,11 @@ This is the preferred method because it's just easier to bounce around accounts 
 3. Select `Users` from the menu
 4. Click `Add user`
 5. Enter a username, email address, first and last name.  I usually put use email addresses as usernames.    
-![14-configure-lza.png](images%2F14-configure-lza.png)    
+![14-configure-lza.png](images/14-configure-lza.png)    
 6. Click `Next`
 7. On the `Add user to groups - optional` screen, select `Create group`
 8. For `Group name` enter `AWS-Admins`.  Enter a description if you want.    
-![15-configure-lza.png](images%2F15-configure-lza.png)    
+![15-configure-lza.png](images/15-configure-lza.png)    
 9. Click `Create group`
 10. This opened a new tab to create the group.  Go back to the `Add user` tab
 11. Click on the refresh button next to `Create group`
@@ -56,7 +56,7 @@ This is the preferred method because it's just easier to bounce around accounts 
 14. Click `Add user`
 15. Click on `AWS accounts` from the menu
 16. Expand all OUs and select all accounts    
-![16-configure-lza.png](images%2F16-configure-lza.png)     
+![16-configure-lza.png](images/16-configure-lza.png)     
 17. Click `Assign users or groups`
 18. Select the `AWS-Admins` group from the list
 19. Click `Next`
@@ -79,13 +79,13 @@ To login in the future:
 The `AWS access portal URL` is what will be used to log in using the account created in the previous process.  Once logged in,
 a screen similar to the following will appear showing all the accounts that the user has access to.
 
-![17-configure-lza.png](images%2F17-configure-lza.png)    
+![17-configure-lza.png](images/17-configure-lza.png)    
     
 Selecting the down arrow next to the account will display the assigned roles. In this case, `AWSAdministratorAccess`
 would be the only role to appear.  CLicking on `Management Console` will log the user into the account with Administrator
 access.  `Command line or programmatic access` will provide temporary access keys.  Although if you want to use the AWS CLI
 to [use sso](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-sso.html).
 
-![18-configure-lza.png](images%2F18-configure-lza.png)    
+![18-configure-lza.png](images/18-configure-lza.png)    
 
 

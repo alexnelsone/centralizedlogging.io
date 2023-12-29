@@ -96,7 +96,7 @@ and more easily understand how much it costs to run that workload.  There are ma
 
 We will end up with a structure similar to the diagram below.    
     
-![01-configure-lza.png](images%2F01-configure-lza.png)
+![01-configure-lza.png](images/01-configure-lza.png)
 
 
 Let's go ahead and create the OU structure using the Control Tower console.
@@ -113,7 +113,7 @@ Let's go ahead and create the OU structure using the Control Tower console.
 The same indicators will appear as when the GovCloud OU was registered.  Once complete, add a `Sandbox` OU under root. When 
 completed, we will have a structure like the one below:
 
-![03-configure-lza.png](images%2F03-configure-lza.png)
+![03-configure-lza.png](images/03-configure-lza.png)
     
 Before we get too deep into things, there _might_ be an issue with a new account in which AWS will limit what you can do.
 They refer to this as a `Containment` score, or you might hear it referred to as a `trust` score.  More info [here](https://towardsaws.com/containment-score-of-aws-3a893231e948).
@@ -142,7 +142,7 @@ installer. [Need help?](https://docs.aws.amazon.com/codecommit/latest/userguide/
 We are going to be using some configuration provided in the LZA GitHub repository under [`references/sample-configurations`](https://github.com/awslabs/landing-zone-accelerator-on-aws/tree/main/reference/sample-configurations).
 Right now, our cloned repo from CodeCommit should look like this:
 
-![05-configure-lza.png](images%2F05-configure-lza.png)    
+![05-configure-lza.png](images/05-configure-lza.png)    
     
 Let's get started.
 1. In a browser, open  [reference/sample-configurations/aws-best-practices](https://github.com/awslabs/landing-zone-accelerator-on-aws/tree/main/reference/sample-configurations/aws-best-practices) from the samples-configurations in the LZA repo

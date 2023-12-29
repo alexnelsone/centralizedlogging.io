@@ -60,7 +60,7 @@ both the commercial and GovCloud (US) partitions, but I will work on the GovClou
 
 1. login to your commercial account with the root user, the email address you used to create the account.
 2. In the upper right hand corner, select the drop-down next to account name and select 'Account'    
-    ![01-configure-lza.png](images%2F01-configure-lza.png)    
+    ![01-configure-lza.png](images/01-configure-lza.png)    
     
 3. On the account page, scroll until you see 'Other Settings' and click `AWS GovCloud` on the line that says "To sign up for
 AWS GovCloud (US), see AWS GovCloud."  If you do not see this, you did not login as the root user.

@@ -80,12 +80,12 @@ am in the GovCloud partition.
 During the pipeline execution, you should expect to receive a few emails as the accounts are being created.
 
 For each account, you will receive a `Welcome to Amazon Web Services` email    
-![39-configure-lza.png](images%2F39-configure-lza.png)    
+![39-configure-lza.png](images/39-configure-lza.png)    
     
 For each account, you will receive an additional `Welcome to Amazon Web Services` email.  This one is different than
 the previous.
 
-![40-configure-lza.png](images%2F40-configure-lza.png)    
+![40-configure-lza.png](images/40-configure-lza.png)    
     
 For each account, an invitation for the root email, the email address used in the `accounts-config.yaml`. to join SSO.  You
 DO NOT need to accept this invitation.  
@@ -93,4 +93,4 @@ DO NOT need to accept this invitation.
 For each of the security notifications (Low, Medium and High), a subscription notification for the SNS topics.   You will 
 need to confirm these subscriptions.
 
-![41-configure-lza.png](images%2F41-configure-lza.png)    
+![41-configure-lza.png](images/41-configure-lza.png)    

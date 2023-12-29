@@ -10,7 +10,7 @@ Let's start with security.
 
 In my current configuration, on the Summary page, I am seeing the following under `Security standards`:
 
-![19-configure-lza.png](images%2F19-configure-lza.png)    
+![19-configure-lza.png](images/19-configure-lza.png)    
     
 In our `security-config.yaml` file under the Security Hub settings, we don't have anything 
 configured.
@@ -28,7 +28,7 @@ enabled by default.  We are seeing an average Security score of 89%.  I am more 
     
 In our `Findings by Region` summary we are seeing the following:
 
-![20-configure-lza.png](images%2F20-configure-lza.png)    
+![20-configure-lza.png](images/20-configure-lza.png)    
     
 Let's click on the 19 Critical findings to see what we can fix.
     

@@ -180,7 +180,7 @@ Wait until the pipeline gets to the `Review` stage.  At that point, you should r
 The email will look something like this:
     
     
-![04-configure-lza.png](images%2F04-configure-lza.png)    
+![04-configure-lza.png](images/04-configure-lza.png)    
 
     
 

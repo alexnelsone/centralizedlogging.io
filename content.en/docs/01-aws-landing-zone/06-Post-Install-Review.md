@@ -24,26 +24,26 @@ For each account we received:
 
 1. Email saying "Welcome to Amazon Web Services"
 
-![06-configure-lza.png](images%2F06-configure-lza.png)    
+![06-configure-lza.png](images/06-configure-lza.png)    
 
 2. Email invitation to join IAM Identity Center.  This email is sent to the root email address used to create the account. 
 We DO NOT have to accept this invite.
 
-![07-configure-lza.png](images%2F07-configure-lza.png)
+![07-configure-lza.png](images/07-configure-lza.png)
 
 3. Email indicating that the AWS Account is ready
 
-![08-configure-lza.png](images%2F08-configure-lza.png)
+![08-configure-lza.png](images/08-configure-lza.png)
 
 4. Email regarding AWS Cost Anomaly detection associated with the management account.
 
-![10-configure-lza.png](images%2F10-configure-lza.png)    
+![10-configure-lza.png](images/10-configure-lza.png)    
 
 
 In the `global-config.yaml` file we configured an SNS topic called security. This topic was created in our LogArchive account.
 We received an email to confirm the subscription.
 
-![09-configure-lza.png](images%2F09-configure-lza.png)
+![09-configure-lza.png](images/09-configure-lza.png)
 
 We also received several messages from the `Config Rules Compliance Change` SNS topic for each new resource created/modified.
 This comes from our SNS subcription to `aws-controltower-AggregateSecurityNotifications` topic.

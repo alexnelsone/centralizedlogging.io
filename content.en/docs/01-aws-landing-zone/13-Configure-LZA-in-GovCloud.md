@@ -2,7 +2,7 @@ Now that the pipeline is completed, you now have your GovCloud accounts provisio
 If you open `Organization` in the `Control Tower` console in the commercial management account, you should see something
 similar to this.
 
-![42-configure-lza.png](images%2F42-configure-lza.png)    
+![42-configure-lza.png](images/42-configure-lza.png)    
     
 The accounts in the red box are what was created in the previous step.  These are the Commercial accounts associated with
 your GovCloud accounts.  They are in the GovCloud OU which has an SCP attached to it to deny use of any services in these accounts.
@@ -13,12 +13,12 @@ your GovCloud accounts.  They are in the GovCloud OU which has an SCP attached t
 
 1. In the Commercial management account, open the `DynamoDB` console
 2. Select `Tables` from the menu to list your tables    
-![43-configure-lza.png](images%2F43-configure-lza.png)    
+![43-configure-lza.png](images/43-configure-lza.png)    
 3. Look for the table that contains `govCloudAccountMappings` in the name and click on it    
-![44-configure-lza.png](images%2F44-configure-lza.png)    
+![44-configure-lza.png](images/44-configure-lza.png)    
 4. Click on the `Explore table Items` button. You should see a table containing the `commercialAccountId`, `accountName`,
 and `govCloudAccountId`
-![45-configure-lza.png](images%2F45-configure-lza.png)    
+![45-configure-lza.png](images/45-configure-lza.png)    
 5. Copy the contents of this table to a text file or some place where you can see them later
 6. You can now log out of the commercial management account
 

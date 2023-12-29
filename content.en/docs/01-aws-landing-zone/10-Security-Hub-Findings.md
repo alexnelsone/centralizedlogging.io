@@ -10,7 +10,7 @@ by having `AWS Foundational Security Best Practices`.  Later, we are going to di
 
 Here is a screenshot of the finding's details.
 
-![31-configure-lza.png](images%2F31-configure-lza.png)    
+![31-configure-lza.png](images/31-configure-lza.png)    
    
    
 We can see that the Resource showing as non-compliant is prefixed with `cdk-accel`.  This repository isn't created by
@@ -23,11 +23,11 @@ LZA but by the bootstrap process of CDK which LZA uses to deploy its resources.
 
 
 If you click on the `Rule(s)` drop down, you can select the rule from the details pane    
-![32-configure-lza.png](images%2F32-configure-lza.png)    
+![32-configure-lza.png](images/32-configure-lza.png)    
     
 Clicking this will open a new tab with the details of the rule.  From the `Actions` drop down, select `Re-evaluate`
     
-![33-configure-lza.png](images%2F33-configure-lza.png)    
+![33-configure-lza.png](images/33-configure-lza.png)    
     
 While it is being evaluated, if you are subscribed to `aws-controltower-aggregateSecurityNotifications`, you should get 
 a notification indicating a status of `Compliant`.  The image below shows the relevant information from the notification.
@@ -35,7 +35,7 @@ In the  `NewEvaluationResult` boxed in red, you can see the Config rule name, th
 the new compliance type of `COMPLIANT`. Highlighted in blue is the `oldEvaluationResult` and the information to compare. 
 There we can see that it had a compliance type of `NON_COMPLIANT`.
     
-![34-configure-lza.png](images%2F34-configure-lza.png)    
+![34-configure-lza.png](images/34-configure-lza.png)    
     
 This modification will need to be made in all accounts that were created as part of the Landing Zone build out and then again
 for every account vended using the accelerator.  Once the modification is made on all accounts, you will need to wait a few hours for Security Hub
@@ -52,7 +52,7 @@ If you used the example `boundary-policy.json` in this repo, you will not see th
 the pipeline with the new `boundary-policy.json` will result in the following to `aws-controltower-aggregateSecurityNotifications`.
 
 
-![35-configure-lza.png](images%2F35-configure-lza.png)
+![35-configure-lza.png](images/35-configure-lza.png)
 
 ## SNS.2 Logging of delivery status should be enabled for notification messages sent to a topic
 Seeing this in regard to `aws-controltower-AllConfigNotifications`. [Additional Info](https://docs.aws.amazon.com/securityhub/latest/userguide/sns-controls.html#sns-2)
@@ -80,11 +80,11 @@ https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html
 6. Enter the IAM role for successful deliveries
 7. Enter the IAM role for failed deliveries
 
-![36-configure-lza.png](images%2F36-configure-lza.png)    
+![36-configure-lza.png](images/36-configure-lza.png)    
     
 The security notification will show the following new and old evaluation result for each SNS topic:
     
-![37-configure-lza.png](images%2F37-configure-lza.png)    
+![37-configure-lza.png](images/37-configure-lza.png)    
     
 ## SNS.1 SNS topics should be encrypted at-rest using AWS KMS
 This is coming up for the Control Tower SNS topics `aws-controltower-AllConfigNotifications`. You will need to perform this
@@ -162,7 +162,7 @@ needs to be added by hand since the repository is not managed by LZA.
 
 The information on the lifecycle rule will automatically fill in the `Priority`, `Rule description` and `Summary`.
     
-![38-configure-lza.png](images%2F38-configure-lza.png)    
+![38-configure-lza.png](images/38-configure-lza.png)    
 
 
 
