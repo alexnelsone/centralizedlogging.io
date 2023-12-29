@@ -1,4 +1,4 @@
-Let's go ahead and get our GovCloud account resources up and running so we can start workingin GovCloud.  We have done some
+Let's go ahead and get our GovCloud account resources up and running so we can start working in GovCloud.  We have done some
 setup already.  For example, we have setup a GovCloud OU that all of our mapped commercial accounts will be in. This will
 help us to make sure that in the associated Commercial accounts, we do not deploy any workloads.  These accounts exist
 solely for billing purposes.
