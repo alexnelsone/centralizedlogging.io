@@ -27,6 +27,3 @@ theme = 'hugo-book'
   name = "Hugo Themes"
   url = "https://themes.gohugo.io/hugo-book/"
   weight = 20
-
-[params]
-  BookTheme = 'Auto'
