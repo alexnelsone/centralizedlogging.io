@@ -34,25 +34,23 @@ Let's now vend some accounts in GovCloud to get going.
 3. Update all the `email:` lines with the appropriate email address you want to use.  These need to be email addresses 
 you have not used.  I like to use plus notation and generally do something like `aws-accounts+gc-LogArchivGC@domain`
 4. I also want to mimic the account structure I have in my Commercial region, so I'm adding the following as well to create 
-the DevTools and workload accounts, so I can get them created at the same time.
+the DevTools and Sandbox accounts, so I can get them created at the same time.
 
 ```yaml
   - name: DevToolsGC
-    description: Centralized DevTools account for commercial partition
+    description: Centralized DevTools account for GovCloud partition
     email: <govCloud-devtoolsgc-email@example.com> <----- UPDATE EMAIL ADDRESS
     organizationalUnit: GovCloud
     enableGovCloud: true
-  - name: Workload-A-Dev-DatabaseGC
-    description: Database account for Workload-A in commercial partition
+  - name: SandboxGC
+    description: Database account for Workload-A in GovCloud partition
     email: <govCloud-workload-a-dev-databasegc-email@example.com> <----- UPDATE EMAIL ADDRESS
     organizationalUnit: GovCloud
     enableGovCloud: true
-  - name: Workload-A-Dev-ApplicationGC
-    description: Application account for Workload-A in commercial partition
-    email: <govCloud-workload-a-dev-applicationgc-email@example.com> <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: GovCloud
-    enableGovCloud: true
 ```
+* Appendng GC is optional. I use it here so that if I am logged in with SSO, I can see from the name of the account, that I 
+am in the GovCloud partition.
+    
 5. Open `global-config.yaml`
 6. Set `cloudtrail:` `enabled:` to `true`
 7. Set `organizationalTrail:` to `true`

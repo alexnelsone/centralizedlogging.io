@@ -1,9 +1,9 @@
 Installing Landing Zone Accelerator on AWS installs a considerable amount of things.  We don't really need to jump into 
 the details of all of that.  For example, at this time, we don't need to get too much into the weeds of a Lambda helper
 function that assists with deployment.  Here we will stick to some basic things around security.  Where are we at right
-now in regard to our installation, and our compliance and security posture?
+now in regard to our installation and our compliance and security posture.
     
-Let's see where we are in regard to security.
+Let's start with security.
 
 1. Login to the `Audit` account
 2. Navigate to the `Security Hub` console
@@ -23,7 +23,7 @@ configured.
     standards: []
 ```
 It looks like `CIS AWS Foundations Benchmark v1.2.0` and `AWS Foundational Security Best Practices v1.0.0` has been 
-enabled by default.  We are seeing an average Security score of 89%.  I am more concnered with `NIST Special Publication
+enabled by default.  We are seeing an average Security score of 89%.  I am more concerned with `NIST Special Publication
 800-53 Revision 5` compliance, so we will enable that shortly.
     
 In our `Findings by Region` summary we are seeing the following:
