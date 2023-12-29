@@ -2,6 +2,7 @@ baseURL = 'https://centralizedlogging.io/'
 languageCode = 'en-us'
 title = 'centralizedlogging.io'
 theme = 'hugo-book'
+canonifyURLs = true
 
 [markup]
 [markup.goldmark.renderer]
