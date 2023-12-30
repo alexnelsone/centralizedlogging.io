@@ -161,6 +161,8 @@ This only needs to be completed if you will be pulling the LZA code from GitHub.
 10. Click `Next`
 11. Scroll to the bottom of the page and select `Store`
 
+## Create an Organization
+In the GovCloud management Account, create an organizaation.  Add OU's for `Security`, `Infrastructure`, `Sandbox` and `DevTools`.
 
 ## Run the LZA installer
 1. Open the CloudFormation console
@@ -206,7 +208,7 @@ workloadAccounts:
   - name: Sandbox
     description: Sandbox account GovCloud partition
     email: govCloud-workload-a-dev-database-email@example.com <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: Workload-A/Development
+    organizationalUnit: Sandbox
 accountIds:
   - email: <govCloud-management-email@example.com> <----- UPDATE EMAIL ADDRESS
     accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
