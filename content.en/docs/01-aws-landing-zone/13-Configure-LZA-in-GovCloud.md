@@ -200,34 +200,29 @@ workloadAccounts:
     email: <govCloud-network-email@example.com> <----- UPDATE EMAIL ADDRESS
     organizationalUnit: Infrastructure
   - name: DevTools
-    description: Centralized DevTools account for commercial partition
+    description: Centralized DevTools account for GovCloud partition
     email: govCloud-devtools-email@example.com <----- UPDATE EMAIL ADDRESS
     organizationalUnit: DevTools
-  - name: Workload-A-Dev-Database
-    description: Database account for Workload-A in commercial partition
+  - name: Sandbox
+    description: Sandbox account GovCloud partition
     email: govCloud-workload-a-dev-database-email@example.com <----- UPDATE EMAIL ADDRESS
     organizationalUnit: Workload-A/Development
-  - name: Workload-A-Dev-Application
-    description: Application account for Workload-A in commercial partition
-    email: govCloud-workload-a-dev-application-email@example.com <----- UPDATE EMAIL ADDRESS
-    organizationalUnit: Workload-A/Development 
 accountIds:
   - email: <govCloud-management-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
   - email: <govCloud-log-archive-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
   - email: <govCloud-audit-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
   - email: <govCloud-sharedservices-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
   - email: <govCloud-network-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
   - email: <govCloud-devtools-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
-  - email: <govCloud-workload-a-dev-application-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
-  - email: <govCloud-workload-a-dev-database-email@example.com> <----- UPDATE EMAIL ADDRESS
-    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE IN COMMERCIAL MGMT ACCOUNT
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
+  - email: <govCloud-sandbox-email@example.com> <----- UPDATE EMAIL ADDRESS
+    accountId: 'ACCOUNT_ID'  <----- UPDATE FROM DYNAMODB MAPPING TABLE govCloudAccountId IN COMMERCIAL MGMT ACCOUNT
+
 ```
 7. Check-in the file
 8. Open the `global-config.yaml` file
