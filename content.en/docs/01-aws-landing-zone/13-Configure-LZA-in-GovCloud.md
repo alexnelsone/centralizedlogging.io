@@ -162,7 +162,7 @@ This only needs to be completed if you will be pulling the LZA code from GitHub.
 11. Scroll to the bottom of the page and select `Store`
 
 ## Create an Organization
-In the GovCloud management Account, create an organizaation.  Add OU's for `Security`, `Infrastructure`, `Sandbox` and `DevTools`.
+In the GovCloud management Account, create an organization.  Add OU's for `Security`, `Infrastructure`, `Sandbox` and `DevTools`.
 
 ## Run the LZA installer
 1. Open the CloudFormation console
