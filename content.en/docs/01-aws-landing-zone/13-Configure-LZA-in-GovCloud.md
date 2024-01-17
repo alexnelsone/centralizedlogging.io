@@ -151,8 +151,8 @@ encryption for AWS CloudTrail and AWS Config, and we want to do this.
 This only needs to be completed if you will be pulling the LZA code from GitHub.
 1. Open the Secrets Manager console
 2. Click `Store a new secret`
-3. Select `Other type of secret`
-4. Under `Key/value pairs`, select `Plaintext`
+   3. Select `Other type of secret`
+    . Under `Key/value pairs`, select `Plaintext`
 5. Remove all text from the textbox and paste your GitHub Token in the box
 6. For `Encryption key` leave `aws/secretsmanager` selected
 7. Click Next
@@ -329,7 +329,7 @@ logging:
 12. Open the `iam-config.yaml` file
 13. Replace the contents of the file with
 ```yaml
- providers: []
+providers: []
 policySets:
   - deploymentTargets:
       organizationalUnits:
@@ -423,7 +423,7 @@ backupPolicies: []
 23. Open the `security-config.yaml` file
 24. Replace the contents of the file with the following
 ```yaml
- homeRegion: &HOME_REGION us-gov-west-1
+homeRegion: &HOME_REGION us-gov-west-1
 centralSecurityServices:
   delegatedAdminAccount: Audit
   ebsDefaultVolumeEncryption:
